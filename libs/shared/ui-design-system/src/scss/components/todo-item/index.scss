@@ -1,0 +1,37 @@
+.todo-item {
+  --todo-item-spacing: var(--space-sm);
+  --todo-item-color-background: rgb(var(--color-surface-3));
+
+  display: grid;
+  grid-template-columns: var(--space-lg) 1fr;
+  gap: var(--todo-item-spacing);
+
+  background-color: var(--todo-item-color-background);
+  border-radius: var(--border-radius-lg);
+
+  padding-block: var(--todo-item-spacing);
+}
+
+.todo-item__content {
+  --todo-item-content-spacing-x: var(--space-md);
+  --todo-item-content-spacing-y: var(--space-sm);
+  --todo-item-content-font-family: var(--font-system);
+  --todo-item-content-font-size: 1rem;
+  --todo-item-content-font-weight: 500;
+  --todo-item-content-color-text: rgb(var(--color-text-1));
+
+  margin: 0;
+  padding-block: var(--todo-item-content-spacing-y);
+  padding-inline: var(--todo-item-content-spacing-x);
+
+  font-family: var(--todo-item-content-font-family);
+  font-size: var(--todo-item-content-font-size);
+  font-weight: var(--todo-item-content-font-weight);
+  color: var(--todo-item-content-color-text);
+  line-height: 1;
+  text-decoration: none;
+
+  &--completed {
+    text-decoration: line-through;
+  }
+}

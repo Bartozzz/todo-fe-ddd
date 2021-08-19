@@ -14,7 +14,13 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "build-storybook"
+        ]
       }
     }
   },
@@ -27,12 +33,23 @@
     ]
   },
   "projects": {
-    "todo-app": {
+    "shared-ui-design-system": {
       "tags": []
+    },
+    "shared-util-core": {
+      "tags": []
+    },
+    "todo-app": {
+      "tags": [],
+      "implicitDependencies": ["todo-feature-shell", "shared-ui-design-system"]
     },
     "todo-app-e2e": {
       "tags": [],
       "implicitDependencies": ["todo-app"]
+    },
+    "todo-feature-shell": {
+      "tags": [],
+      "implicitDependencies": ["shared-util-core"]
     }
   }
 }

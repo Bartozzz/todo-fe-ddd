@@ -1,0 +1,15 @@
+.field-item {
+  --field-spacing-x: var(--space-md);
+  --field-spacing-y: var(--space-sm);
+  --field-gap: var(--space-md);
+
+  display: grid;
+  gap: var(--field-gap);
+
+  padding-block: var(--field-spacing-y);
+  padding-inline: var(--field-spacing-x);
+
+  &--checkbox {
+    grid-template-columns: var(--space-lg) 1fr;
+  }
+}

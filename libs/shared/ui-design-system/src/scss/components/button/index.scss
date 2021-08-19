@@ -1,0 +1,68 @@
+@import '../../global/index.scss';
+
+.button {
+  --button-spacing-x: var(--space-xs);
+  --button-spacing-y: var(--space-xxs);
+  --button-font-family: var(--font-root);
+  --button-font-weight: 700;
+  --button-font-size: 1rem;
+  --button-color-text: rgb(var(--color-text-1));
+  --button-color-background: rgb(var(--color-brand-1));
+  --button-color-highlight: rgb(var(--color-brand-1) / 50%);
+
+  @media (prefers-color-scheme: light) {
+    --button-color-text: rgb(var(--color-text-2));
+  }
+
+  display: inline-block;
+  vertical-align: middle;
+
+  padding: var(--button-spacing-y) var(--button-spacing-x);
+
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  color: var(--button-color-text);
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+
+  background-color: var(--button-color-background);
+  border-width: 0;
+  border-radius: var(--border-radius-sm);
+
+  cursor: pointer;
+  user-select: none;
+  -webkit-appearance: button;
+
+  @media (prefers-reduced-motion: no-preference) {
+    & {
+      transition: color 0.2s ease, background-color 0.2s ease,
+        border-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+  }
+
+  &--rounded {
+    border-radius: var(--border-radius-lg);
+  }
+
+  &:hover,
+  &:active,
+  &--active {
+    box-shadow: 0 0 0 var(--space-xxs) var(--button-color-highlight);
+  }
+
+  &:focus {
+    outline: 0;
+    filter: brightness(0.85);
+  }
+
+  &:disabled,
+  &--disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+
+    filter: grayscale(1);
+    opacity: 0.85;
+  }
+}

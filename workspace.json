@@ -1,6 +1,81 @@
 {
   "version": 2,
   "projects": {
+    "shared-ui-design-system": {
+      "root": "libs/shared/ui-design-system",
+      "sourceRoot": "libs/shared/ui-design-system/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/ui-design-system/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/ui-design-system"],
+          "options": {
+            "jestConfig": "libs/shared/ui-design-system/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/html",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/shared/ui-design-system/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/html",
+            "outputPath": "dist/storybook/shared-ui-design-system",
+            "config": {
+              "configFolder": "libs/shared/ui-design-system/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "shared-util-core": {
+      "root": "libs/shared/util-core",
+      "sourceRoot": "libs/shared/util-core/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/util-core/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/util-core"],
+          "options": {
+            "jestConfig": "libs/shared/util-core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "todo-app": {
       "root": "apps/todo-app",
       "sourceRoot": "apps/todo-app/src",
@@ -19,7 +94,7 @@
               "apps/todo-app/src/favicon.ico",
               "apps/todo-app/src/assets"
             ],
-            "styles": ["apps/todo-app/src/styles.scss"],
+            "styles": ["libs/shared/ui-design-system/src/index.scss"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -99,6 +174,27 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/todo-app-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "todo-feature-shell": {
+      "root": "libs/todo/feature-shell",
+      "sourceRoot": "libs/todo/feature-shell/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/todo/feature-shell/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/todo/feature-shell"],
+          "options": {
+            "jestConfig": "libs/todo/feature-shell/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

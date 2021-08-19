@@ -1,0 +1,10 @@
+.content {
+  --content-width: 600px;
+  --content-spacing: var(--space-md);
+
+  margin-inline: auto;
+  padding-block: var(--content-spacing);
+
+  width: 100%;
+  max-width: var(--content-width);
+}

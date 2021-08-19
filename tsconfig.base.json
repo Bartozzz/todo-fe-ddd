@@ -7,14 +7,20 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "strict": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@todo-app/shared-ui-design-system/*": ["libs/shared/ui-design-system/src/*"],
+      "@todo-app/shared-util-core/*": ["libs/shared/util-core/src/*"],
+      "@todo-app/todo-feature-shell/*": ["libs/todo/feature-shell/src/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
